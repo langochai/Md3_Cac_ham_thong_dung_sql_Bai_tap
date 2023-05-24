@@ -63,12 +63,12 @@ VALUES (1, 1, 8, 1),
 
 select SubName, Credit
 from Subject
-where Credit = all ( select max(credit) from Subject );
+where Credit =  ( select max(credit) from Subject );
 
 select S.SubName, M.Mark
 from Mark M
          join Subject S on S.SubID = M.SubID
-where M.Mark = all ( select max(Mark) from Mark);
+where M.Mark =  ( select max(Mark) from Mark);
 
 select S.StudentName, avg(M.Mark)
 from Student S
